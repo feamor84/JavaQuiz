@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">JavaQuiz</string>
+    <string name="question_1">Which Android API level should be use in building application, to cover most of the devices?</string>
+    <string name="question_1_17">17</string>
+    <string name="question_1_15">15</string>
+    <string name="question_1_21">21</string>
+    <string name="question_2">Check ViewGroups:</string>
+    <string name="question_2_constraintlayout">ConstraintLayout</string>
+    <string name="question_2_view">View</string>
+    <string name="question_2_button">Button</string>
+    <string name="question_2_relativelayout">RelativeLayout</string>
+    <string name="question_3">Enter the name of the method, which you can use to search for a concrete element in the layout (i.n. View)</string>
+    <string name="question_3_hint">Method name</string>
+    <string name="question_4">Which files, by default, are part of app resources (are located in \'res\' folder)?</string>
+    <string name="question_4_androidmanifest_xml">AndroidManifest.xml</string>
+    <string name="question_4_activity_main_xml_layout_files">activity_main.xml (layout files)</string>
+    <string name="question_4_mainactivity_java_java_files">MainActivity.java (java files)</string>
+    <string name="question_4_strings_xml">strings.xml</string>
+    <string name="question_5_where_you_should_use_dp_measure_unit">Where You should use dp measure unit?</string>
+    <string name="question_5_to_set_padding_value">To set padding value</string>
+    <string name="question_5_to_set_text_size">To set text size</string>
+    <string name="question_6">Enter the name of the XML attribute You have to use to show text in e.x. TextView only in one line</string>
+    <string name="question_6_hint">Attribute name</string>
+    <string name="question_7">What is the code name of Android version with image above?</string>
+    <string name="question_7_android_eclair">Android Eclair</string>
+    <string name="question_7_android_froyo">Android Froyo</string>
+    <string name="question_7_android_icecream_sandwich">Android Icecream Sandwich</string>
+    <string name="question_7_android_kitkat">Android KitKat</string>
+    <string name="submit">Submit</string>
+    <string name="image_content_desc_one_of_androids_logos">One of Androids logos</string>
 </resources>

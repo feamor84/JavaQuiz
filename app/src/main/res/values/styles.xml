@@ -6,6 +6,109 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="?android:textColorPrimary">@color/textColorPrimary</item>-->
+        <!--<item name="textColorSecondary">@color/textColorSecondary</item>-->
+    </style>
+
+    <style name="MainScrollView">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/mainBackgroundColor</item>
+    </style>
+
+    <style name="DefaultLinearLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/default_margin</item>
+        <item name="android:layout_marginRight">@dimen/default_margin</item>
+        <item name="android:layout_marginTop">@dimen/default_margin_half</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin_half</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <style name="Card.First">
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+    </style>
+
+    <style name="Card.Last">
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+    </style>
+
+    <style name="CardHeading">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:textSize">@dimen/card_heading</item>
+    </style>
+
+    <style name="CardDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/card_divider_height</item>
+        <item name="android:background">@color/cardDivider</item>
+    </style>
+
+    <style name="CardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:textSize">@dimen/card_content</item>
+    </style>
+
+    <style name="DefaultRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/space_between_checkbox_radiobutton_and_label</item>
+        <item name="android:textSize">@dimen/card_content</item>
+    </style>
+
+    <style name="DefaultCheckbox">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/default_margin</item>
+        <item name="android:paddingLeft">@dimen/space_between_checkbox_radiobutton_and_label</item>
+        <item name="android:textSize">@dimen/card_content</item>
+    </style>
+
+    <style name="DefaultCheckbox.First">
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+    </style>
+
+    <style name="DefaultCheckbox.Last">
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+    </style>
+
+    <style name="DefaultTextEdit">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:textSize">@dimen/card_content</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="DefaultImageView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/image_view_height</item>
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+    </style>
+
+    <style name="DefaultButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/default_margin</item>
+        <item name="android:layout_marginRight">@dimen/default_margin</item>
+        <item name="android:layout_marginTop">@dimen/default_margin_half</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+        <item name="android:paddingTop">@dimen/button_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/button_padding_vertical</item>
     </style>
 
 </resources>
