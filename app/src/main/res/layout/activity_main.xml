@@ -21,6 +21,7 @@
                     style="@style/CardDivider"/>
 
                 <RadioGroup
+                    android:id="@+id/question_1_radio_group"
                     style="@style/CardContent">
                     <RadioButton
                         android:id="@+id/question_1_17"
@@ -152,6 +153,7 @@
                     style="@style/CardDivider"/>
 
                 <RadioGroup
+                    android:id="@+id/question_5_radio_group"
                     style="@style/CardContent">
                     <RadioButton
                         android:id="@+id/question_5_padding"
@@ -208,6 +210,7 @@
                     style="@style/CardDivider"/>
 
                 <RadioGroup
+                    android:id="@+id/question_7_radio_group"
                     style="@style/CardContent">
                     <RadioButton
                         android:id="@+id/question_7_eclair"
@@ -234,7 +237,8 @@
         <Button
             android:id="@+id/submit"
             style="@style/DefaultButton"
-            android:text="@string/submit"/>
+            android:text="@string/submit"
+            android:onClick="submitScore"/>
 
     </LinearLayout>
 
