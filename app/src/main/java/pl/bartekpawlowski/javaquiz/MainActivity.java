@@ -2,16 +2,14 @@ package pl.bartekpawlowski.javaquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup question5;
     private RadioGroup question7;
 
-    private CheckBox[] question2;
-    private CheckBox[] question4;
+    private CheckBox[] question2 = new CheckBox[4];
+    private CheckBox[] question4 = new CheckBox[4];
 
     // Answers
 
@@ -36,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private int answer5;
     private String answer6 = "maxlines";
     private int answer7;
+
+    // Score
+    private int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +52,12 @@ public class MainActivity extends AppCompatActivity {
         question5 = (RadioGroup) findViewById(R.id.question_5_radio_group);
         question7 = (RadioGroup) findViewById(R.id.question_7_radio_group);
 
-        // Checkbox views grouped in Map by question
-        question2 = new CheckBox[4];
+        // Checkbox views grouped in CheckBox Array by question
         question2[0] = (CheckBox) findViewById(R.id.question_2_button);
         question2[1] = (CheckBox) findViewById(R.id.question_2_cl);
         question2[2] = (CheckBox) findViewById(R.id.question_2_rl);
         question2[3] = (CheckBox) findViewById(R.id.question_2_view);
 
-        question4 = new CheckBox[4];
         question4[0] = (CheckBox) findViewById(R.id.question_4_activity_main_xml);
         question4[1] = (CheckBox) findViewById(R.id.question_4_android_manifest_xml);
         question4[2] = (CheckBox) findViewById(R.id.question_4_main_activity_java);
@@ -102,7 +101,11 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean compareStrings(String userAnswer, String answer) {
 
-        return Objects.equals(userAnswer, answer);
+        if(userAnswer != null) {
+            return userAnswer.equals(answer);
+        }
+
+        return false;
     }
 
     /**
@@ -119,7 +122,107 @@ public class MainActivity extends AppCompatActivity {
         return selectedId;
     }
 
+    /**
+     *
+     * @param checkBoxGroup - array of CheckBoxes from one question
+     * @return List<Integer> with all ids of checked boxes
+     *
+     */
+
+    private List<Integer> getSelectedCheckbox(CheckBox[] checkBoxGroup) {
+        List<Integer> checked = new ArrayList<Integer>();
+
+        for(int i = 0; i < checkBoxGroup.length; i++) {
+            if(checkBoxGroup[i].isChecked()) {
+                checked.add(checkBoxGroup[i].getId());
+            }
+        }
+
+        return checked;
+    }
+
+    /**
+     *
+     * @param userAnswer - list of all ids checked boxes from user
+     * @param answer - array of correct answers ids
+     * @return - int with value of correct and wrong answers (+1 for correct answer, -1 if answer is wrong), avoid to check all checkboxes from user
+     *
+     */
+
+    private int calculateCheckboxScore(List<Integer> userAnswer, int[] answer) {
+        int correctAnswers = 0;
+
+        for(int i = 0; i < answer.length; i++) {
+            if(userAnswer.contains(answer[i])) {
+                correctAnswers++;
+            }
+        }
+
+        if(userAnswer.size() > correctAnswers) {
+            correctAnswers = correctAnswers * 2 - userAnswer.size();
+        }
+
+        return correctAnswers;
+    }
+
+    /**
+     *
+     * @param score - value of users score
+     * @return = String to be displayed in Toast
+     *
+     */
+
+    private String setSubmitScoreText(int score) {
+        String text = "";
+
+        text += getText(R.string.your_score_is);
+        text += " ";
+        text += new Integer(score).toString();
+
+        return text;
+    }
+
+    /**
+     *
+     * @param view - handle Submit button action, check all questions answers
+     *
+     */
+
     public void submitScore(View view) {
+
+        // Question 1
+        if(getSelectedRadioButtonId(question1) == answer1) {
+            score += 10;
+        }
+
+        // Question 2
+        score += (calculateCheckboxScore(getSelectedCheckbox(question2), answer2) * 5);
+
+        // Question 3
+        if(compareStrings(getTextFromEditText(question3), answer3)) {
+            score += 10;
+        }
+
+        // Question 4
+        score += (calculateCheckboxScore(getSelectedCheckbox(question4), answer4) * 5);
+
+        // Question 5
+        if(getSelectedRadioButtonId(question5) == answer5) {
+            score += 10;
+        }
+
+        // Question 6
+        if(compareStrings(getTextFromEditText(question6), answer6)) {
+            score += 10;
+        }
+
+        // Question 7
+        if(getSelectedRadioButtonId(question7) == answer7) {
+            score += 10;
+        }
+
+        Toast toast = Toast.makeText(this, setSubmitScoreText(score), Toast.LENGTH_LONG);
+        toast.show();
 
     }
 }

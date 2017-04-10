@@ -36,4 +36,6 @@
     <!--Misc-->
     <string name="submit">Submit</string>
     <string name="image_content_desc_one_of_androids_logos">One of Androids logos</string>
+    <!--Toast string-->
+    <string name="your_score_is">Your score is:</string>
 </resources>
