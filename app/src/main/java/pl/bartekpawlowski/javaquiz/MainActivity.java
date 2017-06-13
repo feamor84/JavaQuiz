@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private int answer1;
     private int[] answer2 = new int[2];
-    private String answer3 = "findviewbyid";
+    private static final String answer3 = "findviewbyid";
     private int[] answer4 = new int[2];
     private int answer5;
-    private String answer6 = "maxlines";
+    private static final String answer6 = "maxlines";
     private int answer7;
 
     // Score
@@ -145,24 +145,27 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param userAnswer - list of all ids checked boxes from user
      * @param answer - array of correct answers ids
-     * @return - int with value of correct and wrong answers (+1 for correct answer, -1 if answer is wrong), avoid to check all checkboxes from user
+     * @return - 0 if user check correct and incorrect answer, 0 don't check all correct answers, int if check all correct answers
      *
      */
 
     private int calculateCheckboxScore(List<Integer> userAnswer, int[] answer) {
         int correctAnswers = 0;
 
+        if(userAnswer.size() != answer.length) {
+            return 0;
+        }
+
         for(int i = 0; i < answer.length; i++) {
             if(userAnswer.contains(answer[i])) {
                 correctAnswers++;
+            } else {
+                return 0;
             }
         }
 
-        if(userAnswer.size() > correctAnswers) {
-            correctAnswers = correctAnswers * 2 - userAnswer.size();
-        }
-
         return correctAnswers;
+
     }
 
     /**
@@ -189,6 +192,8 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitScore(View view) {
+
+        score = 0;
 
         // Question 1
         if(getSelectedRadioButtonId(question1) == answer1) {
